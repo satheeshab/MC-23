@@ -18,7 +18,7 @@ git clone https://github.com/satheeshab/MC-23.git
 #### Install dependencies for the client and the server
 
 ``` bash
-cd MC-23
+cd webui
 
 npm install  
 
