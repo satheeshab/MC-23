@@ -11,10 +11,13 @@ This repository contains a web application built with React and Express.
 
 #### Clone the repository
 
+``` bash
 git clone https://github.com/satheeshab/MC-23.git
+```
 
 #### Install dependencies for the client and the server
 
+``` bash
 cd MC-23
 
 npm install  
@@ -22,18 +25,23 @@ npm install
 cd client  
 
 npm install 
+```
 
 ### Running the Application
 
 #### Start the server  
 
-npm start  
+``` bash
+npm start
+```  
 
 #### Start the client  
 
+``` bash
 cd client
 
-npm start  
+npm start 
+```  
 
 #### Access the application 
-access via http://localhost:3000/  
+access at http://localhost:3000/  
