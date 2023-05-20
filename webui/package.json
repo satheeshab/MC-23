@@ -1,34 +1,60 @@
 {
   "name": "webui",
+  "private": true,
   "version": "1.0.0",
-  "description": "",
-  "main": "server/index.js",
-  "scripts": {
-    "start": "nodemon server/index.js",
-    "start:dev": "webpack --mode development --config webpack.config.js && nodemon server/index.js",
-    "start:prod": "webpack --mode=production --config webpack.config.js && node server/index.js",
-    "build": "webpack --mode development --config webpack.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "webui - server side (runs on hosting machine)",
+  "engines": {
+    "node": "20.x"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "custominstall": "node custominstall.js",
+    "prepare": "patch-package",
+    "start": "node dist/createEnv.js && pm2 start ecosystem.prod.config.js --no-daemon",
+    "start:dev": "concurrently -k \"npm run start:dev:server\" \"npm run start:dev:client\"",
+    "start:dev:server": "npm run lint && pm2 start ecosystem.dev.config.js --no-daemon",
+    "start:dev:client": "cd client && npm run start:dev",
+    "start:test": "concurrently -k -s first \"npm run start:test:server\" \"npm run start:test:client\"",
+    "start:test:server": "npm run lint && pm2 start ecosystem.test.config.js --no-daemon",
+    "start:test:client": "cd client && npm run start:test",
+    "start:build": "npm-run-all build:client build:server",
+    "start:build:client": "cd client && npm run build",
+    "start:build:server": "npm run lint && npm run clean && cross-env NODE_ENV=production babel server -d dist -s --ignore 'server/**/*.spec.js', 'server/**/*.test.js'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npm-run-all -c lint:code",
+    "lint:code": "./node_modules/.bin/eslint . --ext js"
+  },
+  "license": "",
   "dependencies": {
+    "@babel/core": "^7.21.8",
     "@babel/preset-env": "^7.21.5",
-    "@babel/preset-react": "^7.18.6",
-    "babel-loader": "^9.1.2",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "html-webpack-plugin": "^5.5.1",
-    "nodemon": "^2.0.22",
-    "raw-loader": "^4.0.2"
+    "fetch-retry": "^5.0.6",
+    "http-errors": "^2.0.0",
+    "pm2": "^5.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.8",
-    "@babel/plugin-syntax-jsx": "^7.21.4",
-    "css-loader": "^6.7.3",
-    "html-loader": "^4.2.0",
-    "webpack": "^5.82.0",
-    "webpack-cli": "^5.0.2"
+    "@babel/cli": "^7.21.5",
+    "@babel/eslint-parser": "^7.21.8",
+    "@babel/plugin-transform-runtime": "^7.21.4",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/register": "^7.21.0",
+    "@babel/runtime": "^7.21.5",
+    "browser-resolve": "^2.0.0",
+    "concurrently": "^8.0.1",
+    "cross-env": "^7.0.3",
+    "cypress": "^12.12.0",
+    "cypress-dotenv": "^2.0.0",
+    "enzyme": "^3.11.0",
+    "eslint": "^8.41.0",
+    "eslint-plugin-react": "^7.32.2",
+    "nodemon": "^2.0.22",
+    "npm-run-all": "^4.1.5",
+    "patch-package": "^7.0.0"
   }
 }
