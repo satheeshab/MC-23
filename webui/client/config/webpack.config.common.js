@@ -3,7 +3,6 @@ const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { merge } = require('webpack-merge');
 
 
 module.exports = {
@@ -25,7 +24,7 @@ module.exports = {
             resolve: {
               extensions: ['.js', '.jsx']
             },
-            exclue: /node_modules/,
+            exclude: /node_modules/,
             use: [
               {
                 loader: 'babel-loader'

@@ -42,23 +42,18 @@ module.exports = merge(common, {
           },
           {
             test: /\.scss$/,
-            loader: [
-              {
-                loader: 'style-loader',
-              },
+            use: [
               {
                 loader: 'css-loader',
                 options: {
                   modules: true,
                   localIdentName: 'WEBUI__[name]__[local]___[hash:base64:5]',
-                  camelCase: true,
-                  sourceMap: true
+                  camelCase: true
                 }
               },
               {
                 loader: 'sass-loader',
                 options: {
-                  sourceMap: true
                 }
               }
             ]
@@ -66,11 +61,14 @@ module.exports = merge(common, {
           {
             test: /\.css$/,
             use: [
-              { loader: 'style-loader' },
+              { 
+                loader: 'style-loader',
+                options: {
+                }
+              },
               {
                 loader: 'css-loader',
                 options: {
-                  sourceMap: true
                 }
               }
             ]
@@ -95,17 +93,9 @@ module.exports = merge(common, {
       },
     ],
     compress: true,
-    clientLogLevel: 'none',
     historyApiFallback: true,
-    watchContentBase: true,
-    publicPath: publicUrl,
-    hot: true,
-    overlay: {
-      warnings: true,
-      errors: true
-    },
-    progress: true,
-    status: 'errors-only'
+    watchFiles: publicUrl,
+    hot: true
   },
   plugins: [ 
     new webpack.DefinePlugin({
