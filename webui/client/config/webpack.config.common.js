@@ -1,7 +1,7 @@
 const path = require('path');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
@@ -67,11 +67,7 @@ module.exports = {
     ],
   },
   plugins: [ 
-    new CopyPlugin({
-      patterns: [
-        { from: "public", to: "dist" }
-      ],
-    }),
+
     new ESLintPlugin({
       extensions: ['.js', '.jsx']
     }),

@@ -54,7 +54,7 @@
     "start:dev": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.config.dev.js --open",
     "start:test": "cross-env NODE_ENV=test BABEL_ENV=test webpack-dev-server --config config/webpack.config.dev.js",
     "build": "npm run lint && webpack --config config/webpack.config.prod.js",
-    "lint": "./node_modules/.bin/eslint . --ext jsx,js"
+    "lint": "eslint --init --ext jsx,js"
   },
   "browserslist": [
     ">0.2%",

@@ -87,15 +87,28 @@ module.exports = merge(common, {
     port: 3001,
     proxy: [
       {
-        '/api/': 'http://localhost:3000',
-        '/auth/': 'http://localhost:3000',
-        '/log/': 'http://localhost:3000'
+        '/api': 'http://localhost:3000',
+        '/auth': 'http://localhost:3000',
+        '/log': 'http://localhost:3000'
       },
     ],
+    client: {
+      progress: true,
+      overlay: true
+    },
+    devMiddleware: {
+      index: true,
+      publicPath: publicUrl,
+      serverSideRender: true,
+      writeToDisk: true,
+    },
     compress: true,
     historyApiFallback: true,
     watchFiles: publicUrl,
-    hot: true
+    hot: true,
+    static: {
+      directory: path.join(__dirname, 'public'),
+    },
   },
   plugins: [ 
     new webpack.DefinePlugin({
@@ -105,6 +118,10 @@ module.exports = merge(common, {
     new HtmlWebpackPlugin({
       inject: false,
       template: path.join(__dirname, '../public/env.ejs'),
-      filename: 'env.js'
+      filename: 'env.js',
+      templateParameters: {
+        MICROFRONTEND_APP1_URL: 'replaceActualApp1Url',
+        MICROFRONTEND_APP2_URL: 'replaceActualApp2Url'
+      }
   })],
 });

@@ -1,0 +1,10 @@
+{
+  "bundle.js": "/static/js/bundle.js",
+  "static/media/favicon.ico": "/static/media/favicon.ico",
+  "manifest.json": "/6cba51a855ac42711282.json",
+  "index.html": "/index.html",
+  "env.js": "/env.js",
+  "static/media/javascript,__webpack_public_path__ = __webpack_base_uri__ = htmlWebpackPluginPublicPath;": "/static/media/javascript,__webpack_public_path__ = __webpack_base_uri__ = htmlWebpackPluginPublicPath;.bin",
+  "favicon.ico": "/de5ff20d6163ca81c0a7.ico",
+  "bundle.js.map": "/static/js/bundle.js.map"
+}
