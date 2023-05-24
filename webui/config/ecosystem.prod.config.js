@@ -1,7 +1,7 @@
 module.exports = {
     apps: [
         {
-            name: 'WEBUI',
+            name: 'WEBUI:BACKEND:PROD',
             script: 'dist/index.js',
             args: '',
             instances: 1,

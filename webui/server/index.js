@@ -27,6 +27,10 @@ app.get('/api', (req, res) => {
   res.send('Hello, from Express API!');
 });
 
+app.get('/auth', (req, res) => {
+  res.send('Hello, from Express Auth!');
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
