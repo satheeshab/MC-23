@@ -44,6 +44,7 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.83.1",
     "webpack-cli": "^5.1.1",
+    "webpack-dev-middleware": "^6.1.1",
     "webpack-dev-server": "^4.15.0",
     "webpack-manifest-plugin": "^5.0.0",
     "webpack-merge": "^5.8.0"
@@ -51,9 +52,9 @@
   "scripts": {
     "clean": "rm -rf dist",
     "prepare": "patch-package",
-    "start:dev": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.config.dev.js --open",
-    "start:test": "cross-env NODE_ENV=test BABEL_ENV=test webpack-dev-server --config config/webpack.config.dev.js",
-    "build": "npm run lint && webpack --config config/webpack.config.prod.js",
+    "start:dev": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.dev.js --open",
+    "start:test": "cross-env NODE_ENV=test BABEL_ENV=test webpack-dev-server --config config/webpack.dev.js",
+    "build": "npm run lint && webpack --config config/webpack.prod.js",
     "lint": "eslint --init --ext jsx,js"
   },
   "browserslist": [

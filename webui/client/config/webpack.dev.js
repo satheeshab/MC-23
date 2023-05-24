@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === 'test'){
   }
 }
 
-const common = require('./webpack.config.common');
+const common = require('./webpack.common');
 
 const publicUrl = '/';
 
@@ -30,7 +30,6 @@ module.exports = merge(common, {
     chunkFilename: 'static/js/[name].chunk.js',
     publicPath: publicUrl
   },
-
   module: {
     rules: [
       {
@@ -93,8 +92,7 @@ module.exports = merge(common, {
       },
     ],
     client: {
-      progress: true,
-      overlay: true
+      progress: true
     },
     devMiddleware: {
       index: true,
@@ -105,10 +103,7 @@ module.exports = merge(common, {
     compress: true,
     historyApiFallback: true,
     watchFiles: publicUrl,
-    hot: true,
-    static: {
-      directory: path.join(__dirname, 'public'),
-    },
+    hot: true
   },
   plugins: [ 
     new webpack.DefinePlugin({

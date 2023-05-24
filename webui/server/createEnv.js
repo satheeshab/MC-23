@@ -17,4 +17,5 @@ const environmentOutput = ejs.render( environmentTemplate, {
     ...defaultEnvValues
 });
 
-fs.writeFileSync(path.join(__dirname, '../client/dist/env,js'), environmentOutput);
+fs.writeFileSync(path.join(__dirname, '../client/dist/env.js'), environmentOutput);
+

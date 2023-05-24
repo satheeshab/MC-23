@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 
-const dist_dir = path.join(__dirname, '../dist'); 
+const dist_dir = path.join(__dirname, '../client/dist'); 
 const html_file = path.join(dist_dir, 'index.html'); 
 
 console.log(app.get('env'));
