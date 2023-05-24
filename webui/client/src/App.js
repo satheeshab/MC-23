@@ -4,7 +4,7 @@ function App() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    fetch('api')
+    fetch('/')
       .then((response) => response.text())
       .then((data) => setMessage(data))
       .catch((error) => console.log(error));
@@ -13,7 +13,6 @@ function App() {
   return (
     <div className="App">
       <h1>{message}</h1>
-      <h1>Test</h1>
     </div>
   );
 }

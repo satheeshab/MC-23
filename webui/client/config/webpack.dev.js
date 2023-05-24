@@ -83,14 +83,13 @@ module.exports = merge(common, {
   devtool: 'source-map',
   devServer: {
     host: 'localhost',
-    port: 3001,
-    proxy: [
-      {
-        '/api': 'http://localhost:3000',
-        '/auth': 'http://localhost:3000',
-        '/log': 'http://localhost:3000'
-      },
-    ],
+    port: 3000,
+    proxy: {
+      '/api' :
+        {
+          target: 'http://localhost:5000'
+        },
+    },
     client: {
       progress: true
     },
@@ -112,7 +111,6 @@ module.exports = merge(common, {
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       inject: false,
-      favicon: path.join(__dirname, '../dist/favicon.ico'),
       template: path.join(__dirname, '../public/env.ejs'),
       filename: 'env.js',
       templateParameters: {
