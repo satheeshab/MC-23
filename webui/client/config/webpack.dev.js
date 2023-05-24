@@ -112,6 +112,7 @@ module.exports = merge(common, {
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       inject: false,
+      favicon: path.join(__dirname, '../dist/favicon.ico'),
       template: path.join(__dirname, '../public/env.ejs'),
       filename: 'env.js',
       templateParameters: {

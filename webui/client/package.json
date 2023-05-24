@@ -39,6 +39,7 @@
     "raw-loader": "^4.0.2",
     "react": "^18.2.0",
     "react-app-polyfill": "^3.0.0",
+    "react-devtools": "^4.27.8",
     "react-dom": "^18.2.0",
     "style-loader": "^3.3.3",
     "url-loader": "^4.1.1",

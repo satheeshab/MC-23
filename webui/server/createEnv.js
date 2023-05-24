@@ -1,7 +1,7 @@
-import 'dotenv/config';
-import path from 'path';
-import ejs from 'ejs';
-import fs from 'fs';
+const dotenv = require('dotenv');
+const path = require('path');
+const ejs = require('ejs');
+const fs = require('fs');
 
 const defaultEnvValues = {
     MICROFRONTEND_APP1_URL: 'notProvided',
@@ -9,7 +9,7 @@ const defaultEnvValues = {
 };
 
 const environmentTemplate = fs.readFileSync(
-    path,join(__dirname, '../client/dist/env.ejs'),
+    path.join(__dirname, '../client/public/env.ejs'),
     {encoding: 'utf-8'}
 );
 
