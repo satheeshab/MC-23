@@ -7,7 +7,7 @@ module.exports = {
             instances: 1,
             autorestart: true,
             detached: true,
-            watch: true,
+            watch: 'server',
             exec_mode: 'fork',
             node_args: [            
             ],

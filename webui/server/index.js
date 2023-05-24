@@ -8,27 +8,18 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 
 const dist_dir = path.join(__dirname, '../client/dist'); 
-const html_file = path.join(dist_dir, 'index.html'); 
-
 console.log(app.get('env'));
 
 if (process.env.NODE_ENV == 'production'){
   app.use(express.static(dist_dir));
-  app.get('/', (req, res) => {
-    res.sendFile(html_file);
-  });
 }
 
-app.get('/', (req, res) => {
-  res.send('Hello, from Express!');
+app.get('/api/home', (req, res) => {
+  res.send('Home page content from backend!');
 });
 
-app.get('/api', (req, res) => {
-  res.send('Hello, from Express API!');
-});
-
-app.get('/auth', (req, res) => {
-  res.send('Hello, from Express Auth!');
+app.get('/api/hello', (req, res) => {
+  res.send('Hello, from express backend!');
 });
 
 app.listen(PORT, () => {
