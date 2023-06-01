@@ -15,10 +15,6 @@ if (process.env.NODE_ENV == 'production'){
 }
 
 app.get('/api/home', (req, res) => {
-  res.send('Home page content from backend!');
-});
-
-app.get('/api/hello', (req, res) => {
   res.send('Hello, from express backend!');
 });
 
