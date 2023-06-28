@@ -12,6 +12,7 @@ function App() {
 
   return (
     <div className="App">
+      <p>Below data is fetched from express middleware.</p>
       <h1>{message}</h1>
     </div>
   );

@@ -1,8 +1,4 @@
-
-
-
-
-export async function callApi(baseUrl, endpoint, accessToken, type = 'GET', body = null) {
+async function callApi(baseUrl, endpoint, accessToken, type = 'GET', body = null) {
     // step 1: validate the access token and refresh if not valid
 
     // step 2: call the external api
@@ -68,3 +64,5 @@ export async function callApi(baseUrl, endpoint, accessToken, type = 'GET', body
             throw new Error(`Unsupported request type of '${type}'`);
     }
 }
+
+module.exports.callApi = callApi;

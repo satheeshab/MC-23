@@ -83,11 +83,11 @@ module.exports = merge(common, {
   devtool: 'source-map',
   devServer: {
     host: 'localhost',
-    port: 3000,
+    port: 3001,
     proxy: {
       '/api' :
         {
-          target: 'http://localhost:5000'
+          target: 'http://localhost:3000'
         },
     },
     client: {

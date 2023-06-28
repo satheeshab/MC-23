@@ -33,13 +33,11 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Express (Backend)",
+            "name": "Express Debug",
             "program": "${workspaceFolder}/server/index.js",
             "skipFiles": [
                 "${workspaceRoot}/node_modules/**/*.js"
             ],
-            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/babel-node",
-            "runtimeArgs": ["--nolazy"],
             "env": {
                 "NODE_ENV": "development",
                 "BABEL_ENV": "development",

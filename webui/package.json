@@ -1,14 +1,14 @@
 {
-  "name": "webui",
+  "name": "mcc-webui",
   "private": true,
   "version": "1.0.0",
-  "description": "webui - server side (runs on hosting machine)",
+  "description": "mcc-webui - server side (runs on hosting machine)",
   "engines": {
     "node": "20.x"
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "pkginstall": "node customPackageinstall.js",
+    "install": "node common/InstallPackages.js",
     "prepare": "patch-package",
     "start": "node server/createEnv.js && pm2 start ecosystem/ecosystem.prod.config.js --no-daemon",
     "start:dev": "concurrently -k \"npm run start:dev:server\" \"npm run start:dev:client\"",
@@ -31,6 +31,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.9",
+    "esm": "^3.2.25",
     "express": "^4.18.2",
     "fetch-retry": "^5.0.6",
     "http-errors": "^2.0.0",
