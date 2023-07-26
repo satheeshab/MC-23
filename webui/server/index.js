@@ -1,10 +1,7 @@
-//require = require('esm')(module);
-module.exports = require('./app.js');
-
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const routes = require('./routes');
+const apiRouter = require('./routes/apiRouter.js');
 
 if (process.env.NODE_ENV !== 'production') {
   require('@babel/register') ({
@@ -24,14 +21,7 @@ if (process.env.NODE_ENV == 'production'){
   app.use(express.static(dist_dir));
 }
 
-app.use('', () => routes);
-
-app.get('/', (req, res) => {
-  res.send('Hello');
-});
-
-console.log(`module details: ******************** `);
-console.log(module);
+app.use('/api', apiRouter);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);

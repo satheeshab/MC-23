@@ -47,6 +47,24 @@
             "console": "internalConsole",
             "internalConsoleOptions": "openOnSessionStart",
             "smartStep": true
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "pkgInstall Debug",
+            "program": "${workspaceFolder}/pkgInstaller.js",
+            "skipFiles": [
+                "${workspaceRoot}/node_modules/**/*.js"
+            ],
+            "env": {
+                "NODE_ENV": "development",
+                "BABEL_ENV": "development",
+                "http_proxy": "",
+                "https_proxy": ""
+            },
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "smartStep": true
         }
     ]
 }

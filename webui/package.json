@@ -8,7 +8,7 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "install": "node common/InstallPackages.js",
+    "install": "node PkgInstaller.js",
     "prepare": "patch-package",
     "start": "node server/createEnv.js && pm2 start ecosystem/ecosystem.prod.config.js --no-daemon",
     "start:dev": "concurrently -k \"npm run start:dev:server\" \"npm run start:dev:client\"",
