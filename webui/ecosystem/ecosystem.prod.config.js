@@ -2,7 +2,7 @@ module.exports = {
     apps: [
         {
             name: 'WEBUI:BACKEND:PROD',
-            script: 'server/index.js',
+            script: 'src/server.js',
             args: '',
             instances: 1,
             autorestart: true,

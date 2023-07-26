@@ -10,7 +10,7 @@
     "clean": "rm -rf dist",
     "install": "node PkgInstaller.js",
     "prepare": "patch-package",
-    "start": "node server/createEnv.js && pm2 start ecosystem/ecosystem.prod.config.js --no-daemon",
+    "start": "node src/createEnv.js && pm2 start ecosystem/ecosystem.prod.config.js --no-daemon",
     "start:dev": "concurrently -k \"npm run start:dev:server\" \"npm run start:dev:client\"",
     "start:dev:server": "npm run lint && pm2 start ecosystem/ecosystem.dev.config.js --no-daemon",
     "start:dev:client": "cd client && npm run start:dev",
@@ -19,7 +19,7 @@
     "start:test:client": "cd client && npm run start:test",
     "start:build": "npm-run-all build:client build:server",
     "start:build:client": "cd client && npm run build",
-    "start:build:server": "npm run lint && npm run clean && cross-env NODE_ENV=production babel server -d dist -s --ignore 'server/**/*.spec.js', 'server/**/*.test.js'",
+    "start:build:server": "npm run lint && npm run clean && cross-env NODE_ENV=production babel src -d dist -s --ignore 'src/**/*.spec.js', 'src/**/*.test.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext js",
     "stop": "pm2 stop all"

@@ -5,7 +5,7 @@ const { getAdmissionDetails } = require('../middleware/admission');
 const { getCourseDetails, createCourse, deleteCourse } = require('../middleware/course');
  
 // admission related routes
-router.get('/admissions/:courseId?', getAdmissionDetails);
+router.get('/admission/:courseId?', getAdmissionDetails);
 
 // course related routes
 router.get('/course/:courseId?', getCourseDetails);

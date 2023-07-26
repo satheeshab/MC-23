@@ -2,12 +2,12 @@ module.exports = {
     apps: [
         {
             name: 'WEBUI:BACKEND:TEST',
-            script: 'server/index.js',
+            script: 'src/server.js',
             args: '',
             instances: 1,
             autorestart: true,
             detached: true,
-            watch: 'server',
+            watch: 'src',
             exec_mode: 'fork',
             node_args: [],         
             env: {

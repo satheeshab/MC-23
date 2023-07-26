@@ -34,7 +34,7 @@
             "type": "node",
             "request": "launch",
             "name": "Express Debug",
-            "program": "${workspaceFolder}/server/index.js",
+            "program": "${workspaceFolder}/src/server.js",
             "skipFiles": [
                 "${workspaceRoot}/node_modules/**/*.js"
             ],
